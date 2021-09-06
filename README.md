@@ -2,20 +2,20 @@
 
 - Refrensi: <https://sugoku.herokuapp.com/>
 - 3rd party API: <https://github.com/bertoort/sugoku>
+- Screenshoots: /screenshots
 
 ## W2D1
 
-- [ ] Install expo-cli & expo init & setup project
-- [ ] Layout board 9x9
-- [ ] Fetch data board
-- [ ] Mencoba redux dalam react-native
-- [ ] Validate board
+- [v] Install expo-cli & expo init & setup project
+- [v] Layout board 9x9
+- [v] Fetch data board
+- [v] Mencoba redux dalam react-native
+- [v] Validate board
 
 ### Notes D1
-
-- ...
-- ...
-- ...
+- bisa semua huehue
+- aku cek nya dari browser kak, gatau kalo di cek di hp bener atau engga, tp kayaknya aman2 aja
+- udah nyoba "/solve", tp kok balikannya ga sinkron sama board yg udah di generate hm
 
 ## W2D2
 
