@@ -2,7 +2,7 @@
 
 - Refrensi: <https://sugoku.herokuapp.com/>
 - 3rd party API: <https://github.com/bertoort/sugoku>
-- Screenshoots: /screenshots
+- Screenshots: /screenshots
 
 ## W2D1
 
@@ -14,8 +14,8 @@
 
 ### Notes D1
 - bisa semua huehue
-- aku cek nya dari browser kak, gatau kalo di cek di hp bener atau engga, tp kayaknya aman2 aja
-- udah nyoba "/solve", tp kok balikannya ga sinkron sama board yg udah di generate hm
+- aku cek nya dari browser kak, gatau kalo di cek di HP bener atau engga, tp kayaknya aman2 aja
+- udah nyoba hit"/solve", tp kok balikannya ga sinkron sama board yg udah di generate hm
 
 ## W2D2
 
