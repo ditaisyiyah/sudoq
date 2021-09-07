@@ -26,8 +26,8 @@
 
 ### Notes D2
 
-- ...
-- ...
+- update setup-sudoku, hit "/solve" done, 
+- udah bisa cek dari hp (gapake emulator), dan tampilan aman, hanya salah di fontWeight, harusnya berisi string
 - ...
 
 ## Requirement Sugoku
