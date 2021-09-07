@@ -57,6 +57,6 @@
 
 ### Tambahan
 
-- [v] Tombol auto solve pada halaman game yang request ke API `/solve` dan mengisi board dengan dengan data dari API, namun kotak yang sebelum nya diedit HARUS tetap bisa diedit agar:
+- [ ] Tombol auto solve pada halaman game yang request ke API `/solve` dan mengisi board dengan dengan data dari API, namun kotak yang sebelum nya diedit HARUS tetap bisa diedit agar:
   - untuk memudahkan aku memerika tombol validate nya dan redirect ke halaman finish JIKA boardnya sudah benar
   - bisa aku salahin 1 kotak untuk mengecek bagaimana respon tombol validate jika board yang kuisi ada yang salah
