@@ -1,4 +1,1 @@
 export const SUGOKU_GET = 'SUGOKU/GET';
-export const SUGOKU_UPDATE = 'SUGOKU/UPDATE';
-export const SUGOKU_VALIDATE = 'SUGOKU/VALIDATE';
-export const SUGOKU_SOLVE = 'SUGOKU/SOLVE';
