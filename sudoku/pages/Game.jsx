@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSugokuCreator, solveSugokuCreator, updateSugokuCreator, validateSugokuCreator } from '../store/sugoku/action';
@@ -14,28 +14,32 @@ export default function Game(){
     dispatch(getSugokuCreator(sugokuURL));
   }, [])
 
+  const cell = (row, i) => {
+    return (
+      row?.map((col, j) => {
+        return (
+          col ? (
+            <Text key={j} style={styleCell(i, j, 'static').cell}>{col}</Text>
+          ) : (
+            <TextInput 
+              key={j} style={styleCell(i, j, 'dynamic').cell} keyboardType='numeric'
+              onChangeText={(text) => dispatch(updateSugokuCreator(+text, i, j))} />
+          )
+        )
+      }
+    )
+    )
+  }
+
   return (
     <>
-      <View style={styles.container}>
       <Text style={styles.gameName} >SUDOQ</Text>
-      <Text style={styles.status} >{status ? status: ''}</Text>
+      <Text style={styleStatus(status).status} >{status.toUpperCase()}</Text>
         {
           board?.map((row, i) => {
             return (
               <View key={i} style={styles.row}>
-                {
-                  row?.map((col, j) => {
-                    return (
-                      board[i][j] ? (
-                        <Text key={j} style={styles.staticCell}>{col}</Text>
-                      ) : (
-                        <TextInput 
-                          key={j} style={styles.dynamicCell} keyboardType='numeric'
-                          onChangeText={(text) => dispatch(updateSugokuCreator(+text, i, j))} />
-                      )
-                    )
-                  })
-                }
+                {cell(row, i)}
               </View>
               )
             })
@@ -50,51 +54,43 @@ export default function Game(){
             onPress={() => dispatch(solveSugokuCreator(sugokuURL))}
             />
         </View>
-      </View>
     </>
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    height: 40*9,
-    width: 40*9,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const styleStatus = (status) => StyleSheet.create({
+  status: {
+    height: 30,
+    fontSize: 20,
+    fontWeight: '600',
+    color: status=='unsolved'? 'red' : 'green'
   },
+})
+
+const styleCell = (i, j, type) => StyleSheet.create({
+  cell: {
+    height: 40,
+    width: 40,
+    color: type=='static'? 'black' : 'hotpink',
+    fontSize: 20,
+    textAlign: 'center',
+    borderColor: 'black',
+    borderWidth: 1,
+    marginBottom: i==2 || i == 5 ? 3 : 0,
+    marginRight: j==2 || j == 5 ? 3 : 0,
+  },
+})
+
+const styles = StyleSheet.create({
   gameName: {
     color: 'hotpink',
-    fontWeight: 'bolder',
+    fontWeight: '800',
     fontSize: 50,
-    marginBottom: 30,
-  },
-  status: {
-    fontSize: 20,
+    marginBottom: 20,
   },
   row: {
     backgroundColor: 'white',
     flexDirection: 'row',
-    borderColor: 'black',
-    borderWidth: 1,
-    margin: 1,
-  },
-  staticCell: {
-    height: 40,
-    width: 40,
-    color: 'red',
-    fontSize: 20,
-    textAlign: 'center',
-    borderColor: 'black',
-    borderWidth: 1
-  },
-  dynamicCell: {
-    height: 40,
-    width: 40,
-    textAlign: 'center',
-    borderColor: 'black',
-    borderWidth: 1
   },
   buttons: {
     width: 200,
@@ -103,12 +99,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 5,
   },
-  // buttonValidate: {
-  //   color: 'hotpink',
-  //   fontWeight: 'bold',
-  // },
-  // buttonSolve: {
-  //   backgroundColor: 'hotpink',
-  //   fontWeight: 'bold',
-  // }
+  buttonValidate: {
+    color: 'hotpink',
+    fontWeight: '500',
+  },
 });

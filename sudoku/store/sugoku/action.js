@@ -20,10 +20,10 @@ function validateSugoku(status){
     payload: status
   }
 }
-function solveSugoku(board){
+function solveSugoku(solution){
   return {
     type: SUGOKU_SOLVE,
-    payload: board
+    payload: solution
   }
 }
 
@@ -57,17 +57,12 @@ export function updateSugokuCreator(text, i, j){
 export function validateSugokuCreator(sugokuURL){
   return async function(dispatch, getState){
     try {
-      const board = getState().sugoku.board;
+      const encodeBoard = (board) => board.reduce((result, row, i) => 
+        result + `%5B${encodeURIComponent(row)}%5D${i === board.length -1 ? '' : '%2C'}`, '');
+      const encodeParams = (params) => 
+        Object.keys(params).map(key => key + '=' + `%5B${encodeBoard(params[key])}%5D`).join('&');
 
-      const encodeBoard = (board) => {
-        return board.reduce((result, row, i) => {
-          return result + `%5B${encodeURIComponent(row)}%5D${i === board.length -1 ? '' : '%2C'}`, '';
-        });
-      }
-      const encodeParams = (params) => {
-        return Object.keys(params).map(key => key + '=' + `%5B${encodeBoard(params[key])}%5D`).join('&');
-      }
-      const data = { board }
+      const data = { board: getState().sugoku.board }
       const response = await fetch(`${sugokuURL}/validate`, {
         method: 'POST',
         body: encodeParams(data),
@@ -86,17 +81,12 @@ export function validateSugokuCreator(sugokuURL){
 export function solveSugokuCreator(sugokuURL){
   return async function(dispatch, getState){
     try {
-      const board = getState().sugoku.board;
+      const encodeBoard = (board) => board.reduce((result, row, i) => 
+        result + `%5B${encodeURIComponent(row)}%5D${i === board.length -1 ? '' : '%2C'}`, '');
+      const encodeParams = (params) => 
+        Object.keys(params).map(key => key + '=' + `%5B${encodeBoard(params[key])}%5D`).join('&');
 
-      const encodeBoard = (board) => {
-        return board.reduce((result, row, i) => {
-          return result + `%5B${encodeURIComponent(row)}%5D${i === board.length -1 ? '' : '%2C'}`, '';
-        });
-      }
-      const encodeParams = (params) => {
-        return Object.keys(params).map(key => key + '=' + `%5B${encodeBoard(params[key])}%5D`).join('&');
-      }
-      const data = { board }
+      const data = { board: getState().sugoku.board }
       const response = await fetch(`${sugokuURL}/solve`, {
         method: 'POST',
         body: encodeParams(data),
@@ -104,9 +94,8 @@ export function solveSugokuCreator(sugokuURL){
       });
       if(!response.ok)
       throw new Error (`Error ${response.status}: Failed to validate board`);
-      const result = await response.json();
-      console.log('aaction solve', result);
-      dispatch(solveSugoku(board));
+      const { solution } = await response.json();
+      dispatch(solveSugoku(solution));
     } catch (error) {
       throw error.message;
     }

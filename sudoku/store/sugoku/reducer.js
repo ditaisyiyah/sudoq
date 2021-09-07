@@ -1,8 +1,8 @@
 import { SUGOKU_GET, SUGOKU_UPDATE, SUGOKU_VALIDATE, SUGOKU_SOLVE } from "./actionType";
 
 const initialState = {
-  board: [], // ???
-  status: false,
+  board: [],
+  status: '',
 }
 
 export default function reducer (state = initialState, action){

@@ -21,5 +21,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
+    borderColor: 'red',
+    borderWidth: 1,
+    padding: 10,
   }
 });
