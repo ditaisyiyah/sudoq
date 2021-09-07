@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Pressable } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 
-export default function Home({ navigation }){
+export default function Home({ navigation }) {
 
   const [name, setName] = useState('');
   const [difficulty, setDifficulty] = useState('');
@@ -10,14 +10,14 @@ export default function Home({ navigation }){
 
   const goPlay = () => {
     const errors = [];
-    if(name && difficulty){
+    if (name && difficulty) {
       navigation.navigate('Game', { name, difficulty });
       setName('');
       setDifficulty('');
       setValError([]);
-    }else{
-      if(!name) errors.push(`Input you name`);
-      if(!difficulty) errors.push(`Choose difficulty`);
+    } else {
+      if (!name) errors.push(`Input you name`);
+      if (!difficulty) errors.push(`Choose difficulty`);
       setValError(errors);
     }
   }
@@ -29,22 +29,22 @@ export default function Home({ navigation }){
         <Text style={styles.power} >powered by SUGOKU</Text>
       </View>
       <View style={styles.userInput}>
-        <TextInput 
-          value={name} style={styles.userName} 
+        <TextInput
+          value={name} style={styles.userName}
           placeholder="Your Name" placeholderTextColor='gray'
           maxLength={10}
-          onChangeText={(text) => setName(text)}/>
+          onChangeText={(text) => setName(text)} />
         <Picker
           selectedValue={difficulty}
           style={styles.options} mode="dialog"
           onValueChange={(value) => setDifficulty(value)}>
-          <Picker.Item style={styles.selected} label="LEVEL" enabled={false} />
+          <Picker.Item style={styles.selected} label="Difficulty" enabled={false} />
           <Picker.Item style={styles.option} label="EASY" value="easy" />
           <Picker.Item style={styles.option} label="MIDDLE" value="medium" />
           <Picker.Item style={styles.option} label="HARD" value="hard" />
         </Picker>
-        <Pressable 
-          style={styles.button} 
+        <Pressable
+          style={styles.button}
           onPress={() => goPlay()}>
           <Text style={styles.buttonText}>PLAY</Text>
         </Pressable>
@@ -95,14 +95,14 @@ const styles = StyleSheet.create({
   },
   options: {
     width: 180,
-    height: 45, 
+    height: 45,
     marginTop: 10,
     backgroundColor: '#383539',
-    color: 'hotpink',
+    color: 'gray',
     textAlign: 'center'
   },
   selected: {
-    fontSize: 22,
+    fontSize: 27,
   },
   option: {
     borderColor: 'red',
@@ -114,13 +114,12 @@ const styles = StyleSheet.create({
   },
   button: {
     width: 180,
-    height: 45, 
+    height: 45,
     backgroundColor: 'hotpink',
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 40,
     marginBottom: 20,
-    
   },
   buttonText: {
     fontSize: 25,
@@ -131,7 +130,6 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     fontSize: 20,
     fontWeight: 'bold',
-    // color: '#383539',
     color: 'red',
   }
 })
