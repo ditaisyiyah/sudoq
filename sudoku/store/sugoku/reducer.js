@@ -8,7 +8,6 @@ const initialState = {
 export default function reducer (state = initialState, action){
   switch (action.type) {
     case SUGOKU_GET:
-      console.log('di reducer', action.payload);
       return {
         ...state,
         board: action.payload
@@ -22,11 +21,6 @@ export default function reducer (state = initialState, action){
       return {
         ...state,
         status: action.payload
-      }
-    case SUGOKU_SOLVE:
-      return {
-        ...state,
-        board: action.payload
       }
     default:
       return state
