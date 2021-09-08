@@ -3,6 +3,7 @@
 - Refrensi: <https://sugoku.herokuapp.com/>
 - 3rd party API: <https://github.com/bertoort/sugoku>
 - Screenshots: /screenshots
+- Deployed on: <https://expo.dev/@ditaisyiyah/sudoku>
 
 ## W2D1
 
