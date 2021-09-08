@@ -31,7 +31,9 @@
 - ternyata masih ada bug kak, saat di validate setelah melakukan solve+update tidak works (selalu benar)
 
 ### Notes D3
-- all problem solved all done, memanfaatkan finally, krna kalo pake 
+- challange D3 sudah slsai sejak D2
+- D3 fokus ngerjain rocket, and has been done
+- styling finish page tdk sesuai target
 
 ## Requirement Sugoku
 
