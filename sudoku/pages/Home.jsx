@@ -37,9 +37,9 @@ export default function Home({ navigation }) {
           onChangeText={(text) => setName(text)} />
         <Picker
           selectedValue={difficulty}
-          style={styles.options} mode="dialog"
+          style={styles.options} mode="dropdown"
           onValueChange={(value) => setDifficulty(value)}>
-          <Picker.Item style={styles.selected} label="Select Difficulty" enabled={false} />
+          <Picker.Item style={styles.selected} label="Difficulty" enabled={false} />
           <Picker.Item style={styles.option} label="Easy" value="easy" />
           <Picker.Item style={styles.option} label="Middle" value="medium" />
           <Picker.Item style={styles.option} label="Hard" value="hard" />
@@ -107,18 +107,19 @@ const styles = StyleSheet.create({
     marginTop: '2%',
     backgroundColor: '#383539',
     color: 'hotpink',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   selected: {
     fontSize: 24,
-    color: 'hotpink',
+    color: 'white',
+    backgroundColor: '#383539',
   },
   option: {
-    // BUG: doesn't work
-    backgroundColor: 'hotpink',
+    color: 'hotpink',
+    backgroundColor: '#383539',
     textAlign: 'center',
     justifyContent: 'center',
-    fontSize: 30,
+    fontSize: 24,
   },
   button: {
     width: '45%',

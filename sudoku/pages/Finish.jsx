@@ -40,6 +40,8 @@ export default function Finish({ navigation, route }) {
             <View key={i} style={styles.leaderboard} >
               <Text style={styles.name}>{player.name}</Text>
               <Text style={styles.duration}>{player.duration} s</Text>
+              {/* <Text style={styles.difficulty}>{player.difficulty}</Text>
+              <Text style={styles.cheat}>{player.cheat}</Text> */}
             </View>
           )
         })

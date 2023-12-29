@@ -10,7 +10,7 @@ import { setPlayer } from '../store/players/action';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-const sugokuURL = 'https://sugoku.herokuapp.com'
+const sugokuURL = 'https://sugoku.onrender.com'
 
 export default function Game({ navigation, route }) {
 
@@ -100,7 +100,10 @@ export default function Game({ navigation, route }) {
       </Pressable>
       <Pressable
         style={styleButton('solve').button}
-        onPress={() => solveBoard()}>
+        onPress={() => {
+          // TODO stop the countdown
+          return solveBoard()
+        }}>
         <Text style={styleButton('solve').text}>SOLVE ?</Text>
       </Pressable>
     </View>

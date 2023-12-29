@@ -1,6 +1,6 @@
 # Sugoku Challenge
 
-- Refrensi: <https://sugoku.herokuapp.com/>
+- Refrensi: <https://sugoku.onrender.com/>
 - 3rd party API: <https://github.com/bertoort/sugoku>
 - Screenshots: /screenshots
 - Deployed on: <https://expo.dev/@ditaisyiyah/sudoku>
